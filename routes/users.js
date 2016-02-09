@@ -29,20 +29,20 @@ router.post('/register',function(req, res, next){
 	var password2 = req.body.password2;
 
 	// Check for Image Field
-	if(req.files.profileimage){
-		console.log('Uploading File...');
+	//if(req.files.profileimage){
+		//console.log('Uploading File...');
 
 		// File Info
-		var profileImageOriginalName 	= req.files.profileimage.originalname;
-		var profileImageName 			= req.files.profileimage.name;
-		var profileImageMime 			= req.files.profileimage.mimetype;
-		var profileImagePath 			= req.files.profileimage.path;
-		var profileImageExt 			= req.files.profileimage.extension;
-		var profileImageSize 			= req.files.profileimage.size;
-	} else {
+		//var profileImageOriginalName 	= req.files.profileimage.originalname;
+		//var profileImageName 			= req.files.profileimage.name;
+		//var profileImageMime 			= req.files.profileimage.mimetype;
+		//var profileImagePath 			= req.files.profileimage.path;
+		//var profileImageExt 			= req.files.profileimage.extension;
+		//var profileImageSize 			= req.files.profileimage.size;
+	//} else {
 		// Set a Default Image
-		var profileImageName = 'noimage.png';
-	}
+		//var profileImageName = 'noimage.png';
+	//}
 
 	// Form Validation
 	req.checkBody('name','Name field is required').notEmpty();
@@ -70,14 +70,14 @@ router.post('/register',function(req, res, next){
 			email: email,
 			username: username,
 			password: password,
-			profileimage: profileImageName
+			//profileimage: profileImageName
 		});
 
 		// Create User
-		User.createUser(newUser, function(err, user){
-			if(err) throw err;
-			console.log(user);
-		});
+		//User.createUser(newUser, function(err, user){
+			//if(err) throw err;
+			//console.log(user);
+		//});
 
 		// Success Message
 		req.flash('success','You are now registered and may log in');
